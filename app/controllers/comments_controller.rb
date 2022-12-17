@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(comment_params)
 
     if @comment.save
-      redirect_to request.refferer
+      redirect_to request.referrer
       flash[:notice] = "Comment posted."
     else
       render :new, status: :unprocessable_entity
