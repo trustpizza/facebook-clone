@@ -1,0 +1,11 @@
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <div class="navbar-brand"> Welcome  <%= link_to "#{current_user.first_name}", user_path(current_user) %> </div>
+        <div class="form">
+          <i class="fa fa-search"></i>
+          <input type="text" class="form-control" form-input" placeholder="Search anyone...">
+          <span class="left-pan"><i class="fa fa-microphone"></i> </span>
+        </div> 
+        <%= button_to "Logout", destroy_user_session_path, :method => :delete, data: { turbo: false }, class: "container-fluid btn"  %>
+      </div>
+  </nav>

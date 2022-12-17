@@ -1,0 +1,9 @@
+<% current_user.received_friend_requests.each do |req| %>
+  <li>
+    <%= link_to "Friend Requests", user_friendships_path(current_user) %>
+  </li>
+<% end %>
+
+<% if current_user.received_friend_requests.count.zero? %>
+  <div>You have no friends request</div>
+<% end %>
