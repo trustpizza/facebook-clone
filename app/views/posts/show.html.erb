@@ -9,7 +9,11 @@
       <div class="show-post post-card container mt-3 mb-4 p-3 border shadow-sm rounded hover-shadow">
       <div class="card-item"><%=@post.title%> by <%=@post.author.first_name%></div>
       <div class="card-item"><%=@post.body%></div>
-      <div class="card-item card-item-bottom">Like or Friend</div>
-</div>
+      <div class="card-item card-item-bottom">
+          <%= button_to 'Like', new_post_like_path(@post, like: {user_id: current_user.id, post_id: @post.id}) %>
+          Like or Friend
+      
+      </div>
+    </div>
   </div>
 </div>
