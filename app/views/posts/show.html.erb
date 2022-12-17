@@ -10,7 +10,7 @@
       <div class="card-item"><%=@post.title%> by <%=@post.author.first_name%></div>
       <div class="card-item"><%=@post.body%></div>
 
-      <%= turbo_frame_tag "post_1" do %>
+      <%= turbo_frame_tag "post_#{@post.id}}" do %>
         <div class="card-item card-item-bottom">
             <%= @post.likes.count %>
             <%= button_to post_likes_path(@post, like: { user_id: current_user.id, post_id: @post.id }), 
