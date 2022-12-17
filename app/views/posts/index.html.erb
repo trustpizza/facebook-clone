@@ -3,7 +3,9 @@
     <%= render 'shared/navbar' %>
   </div>
   <div class="body">
-    <div class="sidebar"> Sidebar </div>
+    <div class="sidebar"> 
+      <%= render 'shared/sidebar'%>
+    </div>
     <div class="feed-container">
       <div class="new-post container mt-3 mb-4 p-3 border shadow-sm rounded hover-shadow">
         <%= link_to 'Create new post', new_user_post_path(current_user)%>
