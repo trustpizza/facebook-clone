@@ -1,2 +1,21 @@
-<div> <%= @user.first_name %> </div>
-
+<div class="body-container">
+  <div class="header">
+    <%= render 'shared/navbar' %>
+  </div>
+  <div class="body">
+    <div class="sidebar"> 
+      <%= render 'shared/sidebar'%>
+    </div>
+    <div class="feed-container">
+      <div>
+        <h1><%= @user.first_name%> <%= @user.last_name%>'s Posts </h1>
+        <%= button_to 'Add Friend', user_friend_requests_path(@user.id), 
+            params: { friend_request: {sender_id: current_user.id ,
+                                      receiver_id: @user.id}} %>
+      </div>
+      <% @posts.each do |post| %> 
+        <%= render 'posts/post', post: post %>
+      <% end %>
+    </div>
+  </div>
+</div>

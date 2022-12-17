@@ -25,6 +25,7 @@ class User < ApplicationRecord
   has_many :comments, foreign_key: :commenter_id, dependent: :destroy 
 
   def friends
-    accepted_friends + began_friends
+    friends = accepted_friends + began_friends
+    friends.uniq
   end
 end
