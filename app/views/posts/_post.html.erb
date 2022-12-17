@@ -1,1 +1,5 @@
-<%= @post.body %>
+<div class="container mt-3 mb-4 p-3 border shadow-sm rounded hover-shadow">
+  <div><%=post.title%> by <%= link_to "#{post.author.first_name}", user_path(post.author_id), class: "user-link"%></div>
+  <div><%=post.body%></div>
+  <div></div>
+</div>

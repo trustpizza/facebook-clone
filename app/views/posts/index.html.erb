@@ -1,6 +1,14 @@
-<%= render 'shared/navbar' %>
-
 <div class="body-container">
-  <div class="sidebar"> Sidebar </div>
-  <div class="feed-container"></div>
+  <div class="header">
+    <%= render 'shared/navbar' %>
+  </div>
+  <div class="body">
+    <div class="sidebar"> Sidebar </div>
+    <div class="feed-container">
+      <% @posts.each do |post| %> 
+        <%= render 'post', post: post %>
+      <% end %>
+    </div>
+  </div>
+  <div class="footer"></div>
 </div>
