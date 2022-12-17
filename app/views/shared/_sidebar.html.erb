@@ -28,7 +28,24 @@
   <% else %>
     <ul class="sidebar-links">
       <% current_user.received_friend_requests.each do |req| %>
-        <%= link_to "#{req.first_name} #{req.last_name}", user_path(req) %>
+        <%= link_to "#{req.sender.first_name} #{req.sender.last_name}", user_path(req.sender) %>
+        <%= button_to 'Accept',
+        user_friendships_path(current_user.id),
+        params: { friendship: { user_id: req.sender_id,
+                                friend_id: current_user.id
+                                },
+                  friend_request: { sender_id: req.sender_id, 
+                                    receiver_id: current_user.id
+                                  }
+                }
+        %>
+        <%= button_to 'Decline',
+        user_friend_request_path(current_user.id, req.sender.id),
+        method: :delete,
+        params: { friend_request: { sender_id: req.sender.id,
+                                    receiver_id: current_user.id }
+                }
+        %>
       <% end %>
     </ul>
   <% end %>
