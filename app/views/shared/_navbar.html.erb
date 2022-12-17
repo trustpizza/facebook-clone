@@ -1,6 +1,6 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <div class="navbar-brand"> Welcome  <%= link_to "#{current_user.first_name}", user_path(current_user), class:'unique-link' %> </div>
+        <div class="navbar-brand"> <%= link_to "Welcome #{current_user.first_name}", user_path(current_user), class:'unique-link' %> </div>
         <div class="form-outline">
           <input type="search" id="form1" class="form-control" placeholder="Type query" aria-label="Search" />
         </div>     
